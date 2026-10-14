@@ -1,0 +1,37 @@
+{
+  "name": "yapper-desktop",
+  "version": "1.0.0",
+  "description": "Unofficial desktop app for yapper.website",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron .",
+    "build": "electron-builder --win --dir && node stamp-icon.js && electron-builder --win --prepackaged dist/win-unpacked",
+    "build:mac": "electron-builder --mac",
+    "build:linux": "electron-builder --linux"
+  },
+  "devDependencies": {
+    "electron": "^33.0.0",
+    "electron-builder": "^25.0.0",
+    "png-to-ico": "2.1.8",
+    "resedit": "^2.0.2"
+  },
+  "build": {
+    "appId": "com.unofficial.yapper",
+    "productName": "Yapper",
+    "icon": "icon.png",
+    "files": [
+      "main.js",
+      "icon.png"
+    ],
+    "win": {
+      "target": "nsis",
+      "signAndEditExecutable": false
+    },
+    "mac": {
+      "target": "dmg"
+    },
+    "linux": {
+      "target": "AppImage"
+    }
+  }
+}
