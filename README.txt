@@ -25,4 +25,4 @@ npm start
 Build Your Own
 npm run build
 
-The app appears in dist/win-unpacked/Yapper.exe. Run the terminal as Administrator if the build fails.
+The app appears in dist/yapper setup Run the terminal as Administrator if the build fails.
