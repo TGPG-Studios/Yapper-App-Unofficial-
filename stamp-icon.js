@@ -22,4 +22,15 @@ const ResEdit = require("resedit");
   res.outputResource(exe);
   fs.writeFileSync(exePath, Buffer.from(exe.generate()));
   console.log("Icon added to", exePath);
+
+  // The updater needs this file next to the app (the two-step build skips it otherwise).
+  const yml = [
+    "provider: github",
+    "owner: TGPG-Studios",
+    "repo: Yapper-App-Unofficial-",
+    "updaterCacheDirName: yapper-desktop-updater",
+    ""
+  ].join("\n");
+  fs.writeFileSync(path.join(__dirname, "dist", "win-unpacked", "resources", "app-update.yml"), yml);
+  console.log("Wrote resources/app-update.yml");
 })().catch((e) => { console.error(e); process.exit(1); });
