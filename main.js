@@ -503,10 +503,10 @@ function setupAutoUpdate() {
     updater.autoInstallOnAppQuit = true;
 
     updater.on("update-available", (i) => {
-      if (manualCheck) dialog.showMessageBox({ type: "info", message: `Downloading Yapper ${i.version}...`, buttons: ["OK"] });
+      if (manualCheck) dialog.showMessageBox({ type: "info", title: "Yapper", message: `Downloading Yapper ${i.version}...`, buttons: ["OK"] });
     });
     updater.on("update-not-available", () => {
-      if (manualCheck) { manualCheck = false; dialog.showMessageBox({ type: "info", message: "You're on the latest version.", buttons: ["OK"] }); }
+      if (manualCheck) { manualCheck = false; dialog.showMessageBox({ type: "info", title: "Yapper", message: "You're on the latest version.", buttons: ["OK"] }); }
     });
     updater.on("update-downloaded", (i) => {
       manualCheck = false;
@@ -520,7 +520,7 @@ function setupAutoUpdate() {
       console.error("[update]", e && e.message);
       if (manualCheck) {
         manualCheck = false;
-        dialog.showMessageBox({ type: "warning", message: "Couldn't check for updates.", detail: String((e && e.message) || e).slice(0, 200), buttons: ["OK"] });
+        dialog.showMessageBox({ type: "warning", title: "Yapper", message: "Couldn't check for updates.", detail: String((e && e.message) || e).slice(0, 200), buttons: ["OK"] });
       }
     });
 
@@ -534,7 +534,7 @@ function setupAutoUpdate() {
 
 function checkForUpdates() {
   if (!updater) {
-    dialog.showMessageBox({ type: "info", message: "Updates only work in the installed app.", buttons: ["OK"] });
+    dialog.showMessageBox({ type: "info", title: "Yapper", message: "Updates only work in the installed app.", buttons: ["OK"] });
     return;
   }
   manualCheck = true;
