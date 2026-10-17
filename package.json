@@ -1,6 +1,6 @@
 {
   "name": "yapper-desktop",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "Unofficial desktop app for yapper.website",
   "main": "main.js",
   "scripts": {
